@@ -9,7 +9,10 @@
 
 <style lang="scss">
 header {
-  background: #020020;
-  border-bottom: 1px solid #021933;
+  background: #1a1f28;
+  border-bottom: 1px solid #14171e;
+}
+.login {
+  color: #3d4752;
 }
 </style>

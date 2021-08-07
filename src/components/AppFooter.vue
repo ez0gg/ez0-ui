@@ -17,6 +17,7 @@ export default {
 <style lang="scss">
 .footer {
   background: #333333;
+  color: #3d4752;
   height: 30px;
   display: flex;
   align-items: center;
