@@ -1,7 +1,11 @@
 <template>
   <header>
     <div class="flex justify-between p-2">
-      <div class="logo">logo</div>
+      <div class="nav flex font-bold">
+        <div class="logo mx-4"><router-link to="/">Logo</router-link></div>
+        <router-link to="/tournaments" class="mr-4">Tournaments</router-link>
+        <router-link to="/teams" class="mr-4">Teams</router-link>
+      </div>
       <div class="login" v-if="!$auth.loading">
         <div v-if="$auth.isAuthenticated" class="flex">
           <p class="mr-4">{{ $auth.user.email }}</p>

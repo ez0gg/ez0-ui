@@ -1,23 +1,21 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <div id="nav">
+    <!-- <div id="nav">
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link>
-    </div>
+    </div> -->
     <div id="main">
       <router-view />
     </div>
-    <app-footer></app-footer>
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader';
-import AppFooter from '@/components/AppFooter';
 
 export default {
-  components: { AppHeader, AppFooter },
+  components: { AppHeader },
   data() {
     return {
       test: 'true',
@@ -28,7 +26,7 @@ export default {
 
 <style lang="scss">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

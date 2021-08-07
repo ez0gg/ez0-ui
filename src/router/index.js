@@ -19,6 +19,18 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ '../pages/About.vue'),
   },
+  {
+    path: '/tournaments',
+    name: 'Events',
+    component: () =>
+      import(/* webpackChunkName: "events" */ '../pages/Events.vue'),
+  },
+  {
+    path: '/teams',
+    name: 'Teams',
+    component: () =>
+      import(/* webpackChunkName: "teams" */ '../pages/Teams.vue'),
+  },
 ];
 
 const router = new VueRouter({

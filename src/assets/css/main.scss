@@ -1,6 +1,14 @@
 @import '_vars';
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   background: #212733;
-  color: #fff;
+  color: rgb(197, 200, 206);
+}
+
+h1 {
+  @apply mb-4;
 }
