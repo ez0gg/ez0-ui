@@ -1,8 +1,6 @@
 <template>
   <div class="home">
-    <div class="hero-home flex items-center justify-center">
-      <h1>Next event:</h1>
-    </div>
+    <div class="hero-home flex items-center justify-center"></div>
     <div class="container mx-auto">
       <h1 class="mt-8 text-4xl font-bold">Element Zer0 Gaming</h1>
       <p class="text-xl">

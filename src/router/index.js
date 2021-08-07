@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../pages/Home.vue';
+import PageNotFound from '../components/PageNotFound';
 
 Vue.use(VueRouter);
 
@@ -30,6 +31,11 @@ const routes = [
     name: 'Teams',
     component: () =>
       import(/* webpackChunkName: "teams" */ '../pages/Teams.vue'),
+  },
+  {
+    path: '*',
+    name: '404',
+    component: PageNotFound,
   },
 ];
 
