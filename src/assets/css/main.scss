@@ -13,6 +13,10 @@ h1 {
   @apply mb-4;
 }
 
+a {
+  color: $primary-color;
+}
+
 .btn {
   @apply px-5 py-1 font-bold;
   font-size: 18px;
@@ -38,4 +42,20 @@ h1 {
 
 .btn-signin {
   background: linear-gradient(to right, #00afff, #4132eb);
+}
+
+.big-section {
+  padding-top: 140px;
+  padding-bottom: 140px;
+
+  h1 {
+    font-size: 48px;
+    font-weight: bold;
+  }
+
+  p {
+    @apply mx-auto;
+    font-size: 20px;
+    max-width: 720px;
+  }
 }

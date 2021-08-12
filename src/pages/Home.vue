@@ -24,14 +24,49 @@
         </div>
       </div>
     </div>
-    <div class="container">
-      <h1 class="mt-8 text-4xl font-bold">Element Zer0 Gaming</h1>
-      <p class="text-xl mb-8">
-        Hosting weekend tournaments every Friday &amp; Satuday.
-      </p>
-      <div class="card">
-        <h2>Card Title</h2>
-        <p>Card Text</p>
+    <div class="big-section">
+      <div class="container text-center">
+        <h1>Next Tournament</h1>
+        <div class="next-tourney">
+          <p>Date: This Friday (2 days from now)</p>
+          <p>Start Time: 6:00pm CST</p>
+          <p>Duration: 3 hours (approx)</p>
+          <p>Max teams: 8</p>
+          <p>Registered teams: 2/8</p>
+          <p>Prize: $100 winner-take-all</p>
+          <p>Format: single elimination, best of 1</p>
+          <p><a href="#">Full details</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="big-section bg-blue">
+      <div class="container text-center">
+        <h1>Why we started Element Zer0</h1>
+        <p class="mb-4">
+          We built ez0 because we loved watching streamers and pros compete in
+          tournaments, and wanted to make that experience accessible to
+          everyone. Get the full tournament experience at ez0 competing with
+          other amateurs and casual gamers.
+        </p>
+        <p>
+          Besides competing in tournaments, we also want to give an opportunity
+          for players to watch their own games or their friends compete live on
+          Twitch with live casters and realistic stream production. If you want
+          to get involved in the production side of the tournament, join our
+          Discord and get in touch!
+        </p>
+      </div>
+    </div>
+    <div class="big-section join-discord">
+      <img class="cypher" src="@/assets/images/cypher.png" />
+      <div class="container text-center">
+        <h1>Join our Discord</h1>
+        <p class="mb-8">
+          Come be a part of our community to stay updated on events and feature
+          launches, get involved in tournament production, make new friends, and
+          more!
+        </p>
+        <button class="btn btn-big">Join Now</button>
       </div>
     </div>
   </div>
@@ -66,6 +101,23 @@ export default {
   img {
     height: 96px;
     width: auto;
+  }
+}
+
+.bg-blue {
+  background: darken($primary-color, 40%);
+}
+
+.join-discord {
+  position: relative;
+  overflow: hidden;
+
+  .cypher {
+    width: 700px;
+    height: auto;
+    position: absolute;
+    left: 80px;
+    bottom: -280px;
   }
 }
 </style>
