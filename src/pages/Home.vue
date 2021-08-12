@@ -40,6 +40,16 @@
 <script>
 export default {
   name: 'Home',
+  methods: {
+    login() {
+      this.$auth.loginWithRedirect();
+    },
+    logout() {
+      this.$auth.logout({
+        returnTo: window.location.origin,
+      });
+    },
+  },
 };
 </script>
 
@@ -47,7 +57,7 @@ export default {
 .hero-home {
   background: url('../assets/images/homebg.jpg') no-repeat center center;
   background-size: cover;
-  height: 600px;
+  height: 560px;
 
   h1 {
     font-size: 72px;
@@ -56,7 +66,6 @@ export default {
   img {
     height: 96px;
     width: auto;
-    margin-top: -80px;
   }
 }
 </style>
