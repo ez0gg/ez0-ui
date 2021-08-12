@@ -1,5 +1,5 @@
 <template>
-  <div class="container mx-auto pt-4">
+  <div class="container pt-4">
     <div class="subnav mb-6">
       <div class="subnav-item active">Current Tournament</div>
       <div class="subnav-item">Upcoming Tournaments</div>
