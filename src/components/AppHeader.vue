@@ -2,35 +2,16 @@
   <header>
     <div class="header flex items-center justify-between p-2">
       <div class="nav flex font-bold">
-        <router-link to="/" class="logo">
-          <img src="@/assets/images/logo.png" />
+        <router-link to="/" class="logo flex items-center">
+          <img class="mr-4" src="@/assets/images/logo2.png" />
+          <span class="teamname mr-4">[teamname]</span>
         </router-link>
+        <router-link to="/" class="header-link">Home</router-link>
         <router-link to="/about" class="header-link">About</router-link>
-        <router-link to="/tournaments" class="header-link"
-          >Tournaments</router-link
-        >
-        <router-link to="/rules" class="header-link">Rules</router-link>
-        <router-link to="/faq" class="header-link">FAQ</router-link>
+        <router-link to="/strats" class="header-link">Strats</router-link>
       </div>
       <div class="login mr-4" v-if="!$auth.loading">
-        <div v-if="$auth.isAuthenticated" class="flex">
-          <p class="mr-4">{{ $auth.user.email }}</p>
-          <button @click="logout">Log out</button>
-        </div>
-        <button
-          v-if="!$auth.isAuthenticated"
-          class="btn btn-signin mr-3"
-          @click="login"
-        >
-          Sign In
-        </button>
-        <button
-          v-if="!$auth.isAuthenticated"
-          class="btn btn-signup"
-          @click="login"
-        >
-          Sign Up
-        </button>
+        <button class="btn btn-signup">Log In</button>
       </div>
     </div>
   </header>
@@ -66,17 +47,19 @@ header {
 }
 .logo {
   img {
-    height: 80px;
+    height: 72px;
     width: auto;
   }
 }
 .header-link {
   @apply px-8;
-  font-size: 20px;
+  font-size: 16px;
   height: 80px;
   display: flex;
   align-items: center;
   transition: color 0.4s ease-in-out;
+  color: #f1f1f1;
+  font-weight: bold;
 
   &.router-link-exact-active {
     color: $primary-color;
@@ -93,5 +76,8 @@ header {
   button {
     color: #ccc;
   }
+}
+.teamname {
+  color: #f1f1f1;
 }
 </style>

@@ -1,5 +1,21 @@
 @import '_vars';
 
+@font-face {
+  font-family: 'Pacaembu';
+  src: url('../fonts/PacaembuVar-subset.woff2');
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Pacaembu', sans-serif;
+  font-feature-settings: 'salt';
+  font-weight: 680;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -23,6 +39,7 @@ a {
   border-radius: 8px;
   background: #2a3144;
   color: #f2f2f2;
+  font-family: 'Pacaembu', sans-serif;
 }
 
 .card {

@@ -2,59 +2,15 @@
   <div class="home">
     <div class="hero-home">
       <div class="container flex flex-col items-center justify-center h-full">
-        <img src="@/assets/images/logo.png" />
-        <h1 class="font-bold mb-8 text-center max-w-4xl">
-          Valorant Tournaments and Weekend Events
+        <img src="@/assets/images/logo2.png" />
+        <h1 class="mb-8 text-center max-w-4xl">
+          Valorant Club Focused on Running Strats
         </h1>
         <div class="home-buttons mb-16">
-          <button
-            v-if="!$auth.isAuthenticated"
-            class="btn btn-big btn-signin mr-4"
-            @click="login"
-          >
-            Sign In
-          </button>
-          <button
-            v-if="!$auth.isAuthenticated"
-            class="btn btn-big btn-signup"
-            @click="login"
-          >
-            Sign Up
-          </button>
+          <router-link to="/about" class="btn btn-big btn-signin mr-4">
+            Learn More
+          </router-link>
         </div>
-      </div>
-    </div>
-    <div class="big-section">
-      <div class="container text-center">
-        <h1>Next Tournament</h1>
-        <div class="next-tourney">
-          <p>Date: This Friday (2 days from now)</p>
-          <p>Start Time: 6:00pm CST</p>
-          <p>Duration: 3 hours (approx)</p>
-          <p>Max teams: 8</p>
-          <p>Registered teams: 2/8</p>
-          <p>Prize: $100 winner-take-all</p>
-          <p>Format: single elimination, best of 1</p>
-          <p><a href="#">Full details</a></p>
-        </div>
-      </div>
-    </div>
-    <div class="big-section bg-blue">
-      <div class="container text-center">
-        <h1>Why we started Element Zer0</h1>
-        <p class="mb-4">
-          We built ez0 because we loved watching streamers and pros compete in
-          tournaments, and wanted to make that experience accessible to
-          everyone. Get the full tournament experience at ez0 competing with
-          other amateurs and casual gamers.
-        </p>
-        <p>
-          Besides competing in tournaments, we also want to give an opportunity
-          for players to watch their own games or their friends compete live on
-          Twitch with live casters and realistic stream production. If you want
-          to get involved in the production side of the tournament, join our
-          Discord and get in touch!
-        </p>
       </div>
     </div>
     <div class="big-section join-discord">
@@ -66,7 +22,7 @@
           launches, get involved in tournament production, make new friends, and
           more!
         </p>
-        <button class="btn btn-big">Join Now</button>
+        <button class="btn btn-big">Join Us</button>
       </div>
     </div>
   </div>
@@ -116,7 +72,7 @@ export default {
     width: 700px;
     height: auto;
     position: absolute;
-    left: 80px;
+    left: 0;
     bottom: -280px;
   }
 }
