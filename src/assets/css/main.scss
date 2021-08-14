@@ -65,13 +65,24 @@ a {
   padding-bottom: 140px;
 
   h1 {
+    @apply mx-auto mb-8;
+    max-width: 800px;
     font-size: 48px;
     font-weight: bold;
   }
 
-  p {
+  p,
+  ul {
     @apply mx-auto;
-    font-size: 20px;
-    max-width: 720px;
+    max-width: 800px;
+  }
+
+  ul {
+    list-style-type: disc;
+    padding-left: 1rem;
+
+    li {
+      padding-bottom: 0.25rem;
+    }
   }
 }

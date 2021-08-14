@@ -47,8 +47,11 @@ header {
 }
 .logo {
   img {
-    height: 72px;
-    width: auto;
+    height: auto;
+    width: 165px;
+    position: absolute;
+    top: 10px;
+    left: 12px;
   }
 }
 .header-link {
@@ -79,5 +82,7 @@ header {
 }
 .teamname {
   color: #f1f1f1;
+  margin-left: 185px;
+  margin-right: 24px;
 }
 </style>
