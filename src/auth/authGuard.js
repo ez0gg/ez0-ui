@@ -1,10 +1,10 @@
 import { getInstance } from './authWrapper';
 
-export const authGuard = async (to, from, next) => {
+export const authGuard = (to, from, next) => {
   const authService = getInstance();
 
   const fn = () => {
-    if (localStorage.getItem('secretCode') === 'cool2') {
+    if (authService.isAuthenticated) {
       return next();
     }
 

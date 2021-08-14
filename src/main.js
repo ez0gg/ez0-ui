@@ -7,10 +7,7 @@ import { SecretCodePlugin } from './auth';
 
 Vue.config.productionTip = false;
 
-Vue.use(SecretCodePlugin, {
-  secretCode: 'cool2',
-  router,
-});
+Vue.use(SecretCodePlugin);
 
 new Vue({
   router,

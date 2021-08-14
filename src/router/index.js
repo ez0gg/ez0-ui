@@ -1,8 +1,10 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import PageNotFound from '../components/PageNotFound';
-import { authGuard } from '../auth';
+import { authGuard, useSecretCode } from '../auth';
 import Login from '../pages/Login.vue';
+
+const auth = useSecretCode({ secretCode: 'cool2' });
 
 Vue.use(VueRouter);
 
@@ -45,5 +47,7 @@ const router = new VueRouter({
   base: process.env.BASE_URL,
   routes,
 });
+
+auth.setRouter(router);
 
 export default router;

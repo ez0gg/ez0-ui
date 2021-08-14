@@ -4,7 +4,7 @@ let instance;
 
 export const getInstance = () => instance;
 
-export const useSecretCode = ({ secretCode, router }) => {
+export const useSecretCode = ({ secretCode }) => {
   if (instance) return instance;
 
   instance = new Vue({
@@ -14,7 +14,6 @@ export const useSecretCode = ({ secretCode, router }) => {
         isAuthenticated: false,
       };
     },
-    router,
     methods: {
       attempt(pw) {
         if (pw === this.secretCode) {
@@ -26,18 +25,19 @@ export const useSecretCode = ({ secretCode, router }) => {
         }
       },
       redirectToLogin() {
-        this.$router.push({ name: 'Login' });
+        this.router.push({ name: 'Login' });
       },
       logout() {
         localStorage.setItem('secretCode', '');
         this.isAuthenticated = false;
-        this.$router.push('/');
+        this.router.push('/');
+      },
+      setRouter(router) {
+        this.router = router;
       },
     },
     created() {
       const localCode = localStorage.getItem('secretCode');
-      console.log('secretCode', this.secretCode);
-      console.log('localCode', localCode);
       this.isAuthenticated = localCode === this.secretCode;
     },
   });
@@ -46,7 +46,7 @@ export const useSecretCode = ({ secretCode, router }) => {
 };
 
 export const SecretCodePlugin = {
-  install(Vue, options) {
-    Vue.prototype.$auth = useSecretCode(options);
+  install(Vue) {
+    Vue.prototype.$auth = getInstance();
   },
 };
