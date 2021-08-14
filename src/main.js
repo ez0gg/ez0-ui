@@ -3,21 +3,13 @@ import App from './App.vue';
 import router from './router';
 import './assets/css/tailwind.css';
 import './assets/css/main.scss';
-import { domain, clientId } from './auth/authConfig.json';
-import { Auth0Plugin } from './auth';
+import { SecretCodePlugin } from './auth';
 
 Vue.config.productionTip = false;
 
-Vue.use(Auth0Plugin, {
-  domain,
-  clientId,
-  onRedirectCallback: (appState) => {
-    router.push(
-      appState && appState.targetUrl
-        ? appState.targetUrl
-        : window.location.pathname
-    );
-  },
+Vue.use(SecretCodePlugin, {
+  secretCode: 'cool2',
+  router,
 });
 
 new Vue({

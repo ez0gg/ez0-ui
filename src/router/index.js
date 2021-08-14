@@ -1,10 +1,17 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import PageNotFound from '../components/PageNotFound';
+import { authGuard } from '../auth';
+import Login from '../pages/Login.vue';
 
 Vue.use(VueRouter);
 
 const routes = [
+  {
+    path: '/login',
+    name: 'Login',
+    component: Login,
+  },
   {
     path: '/',
     name: 'Home',
@@ -20,16 +27,11 @@ const routes = [
       import(/* webpackChunkName: "about" */ '../pages/About.vue'),
   },
   {
-    path: '/tournaments',
-    name: 'Events',
+    path: '/strats',
+    name: 'Strats',
     component: () =>
-      import(/* webpackChunkName: "events" */ '../pages/Events.vue'),
-  },
-  {
-    path: '/teams',
-    name: 'Teams',
-    component: () =>
-      import(/* webpackChunkName: "teams" */ '../pages/Teams.vue'),
+      import(/* webpackChunkName: "events" */ '../pages/Strats.vue'),
+    beforeEnter: authGuard,
   },
   {
     path: '*',

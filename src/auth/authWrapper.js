@@ -1,107 +1,52 @@
 import Vue from 'vue';
-import createAuth0Client from '@auth0/auth0-spa-js';
-
-const DEFAULT_REDIRECT_CALLBACK = () =>
-  window.history.replaceState({}, document.title, window.location.pathname);
 
 let instance;
 
 export const getInstance = () => instance;
 
-export const useAuth0 = ({
-  onRedirectCallback = DEFAULT_REDIRECT_CALLBACK,
-  redirectUri = window.location.origin,
-  ...options
-}) => {
+export const useSecretCode = ({ secretCode, router }) => {
   if (instance) return instance;
 
   instance = new Vue({
     data() {
       return {
-        loading: true,
+        secretCode,
         isAuthenticated: false,
-        user: {},
-        auth0Client: null,
-        popupOpen: false,
-        error: null,
       };
     },
+    router,
     methods: {
-      async loginWithPopup(options, config) {
-        this.popupOpen = true;
-
-        try {
-          await this.auth0Client.loginWithPopup(options, config);
-          this.user = await this.auth0Client.getUser();
-          this.isAuthenticated = await this.auth0Client.isAuthenticated();
-          this.error = null;
-        } catch (e) {
-          console.error(e);
-          this.error = e;
-        } finally {
-          this.popupOpen = false;
-        }
-      },
-      async handleRedirectCallback() {
-        this.loading = true;
-        try {
-          await this.auth0Client.handleRedirectCallback();
-          this.user = await this.auth0Client.getUser();
+      attempt(pw) {
+        if (pw === this.secretCode) {
           this.isAuthenticated = true;
-          this.error = null;
-        } catch (e) {
-          this.error = e;
-        } finally {
-          this.loading = false;
+          localStorage.setItem('secretCode', pw);
+          return true;
+        } else {
+          return false;
         }
       },
-      loginWithRedirect(o) {
-        return this.auth0Client.loginWithRedirect(o);
+      redirectToLogin() {
+        this.$router.push({ name: 'Login' });
       },
-      getIdTokenClaims(o) {
-        return this.auth0Client.getIdTokenClaims(o);
-      },
-      getTokenSilently(o) {
-        return this.auth0Client.getTokenSilently(o);
-      },
-      getTokenWithPopup(o) {
-        return this.auth0Client.getTokenWithPopup(o);
-      },
-      logout(o) {
-        return this.auth0Client.logout(o);
+      logout() {
+        localStorage.setItem('secretCode', '');
+        this.isAuthenticated = false;
+        this.$router.push('/');
       },
     },
-    async created() {
-      this.auth0Client = await createAuth0Client({
-        ...options,
-        client_id: options.clientId,
-        redirect_uri: redirectUri,
-      });
-
-      try {
-        if (
-          window.location.search.includes('code=') &&
-          window.location.search.includes('state=')
-        ) {
-          const { appState } = await this.auth0Client.handleRedirectCallback();
-          this.error = null;
-          onRedirectCallback(appState);
-        }
-      } catch (e) {
-        this.error = e;
-      } finally {
-        this.isAuthenticated = await this.auth0Client.isAuthenticated();
-        this.user = await this.auth0Client.getUser();
-        this.loading = false;
-      }
+    created() {
+      const localCode = localStorage.getItem('secretCode');
+      console.log('secretCode', this.secretCode);
+      console.log('localCode', localCode);
+      this.isAuthenticated = localCode === this.secretCode;
     },
   });
 
   return instance;
 };
 
-export const Auth0Plugin = {
+export const SecretCodePlugin = {
   install(Vue, options) {
-    Vue.prototype.$auth = useAuth0(options);
+    Vue.prototype.$auth = useSecretCode(options);
   },
 };

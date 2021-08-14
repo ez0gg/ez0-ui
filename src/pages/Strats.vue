@@ -1,9 +1,12 @@
 <template>
   <div class="container pt-4">
     <div class="subnav mb-6">
-      <div class="subnav-item active">Current Tournament</div>
-      <div class="subnav-item">Upcoming Tournaments</div>
-      <div class="subnav-item">Past Tournaments</div>
+      <div class="subnav-item active">Ascent</div>
+      <div class="subnav-item">Bind</div>
+      <div class="subnav-item">Icebox</div>
+      <div class="subnav-item">Breeze</div>
+      <div class="subnav-item">Haven</div>
+      <div class="subnav-item">Split</div>
     </div>
     <p>hi</p>
   </div>

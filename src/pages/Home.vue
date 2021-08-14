@@ -103,36 +103,4 @@ export default {
 };
 </script>
 
-<style lang="scss">
-.hero-home {
-  background: url('../assets/images/homebg.jpg') no-repeat center center;
-  background-size: cover;
-  height: 560px;
-
-  h1 {
-    font-size: 72px;
-  }
-
-  img {
-    height: 96px;
-    width: auto;
-  }
-}
-
-.bg-blue {
-  background: #03070c;
-}
-
-.join-discord {
-  position: relative;
-  overflow: hidden;
-
-  .cypher {
-    width: 700px;
-    height: auto;
-    position: absolute;
-    left: 0;
-    bottom: -280px;
-  }
-}
-</style>
+<style lang="scss"></style>

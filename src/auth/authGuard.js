@@ -1,23 +1,15 @@
 import { getInstance } from './authWrapper';
 
-export const authGuard = (to, from, next) => {
+export const authGuard = async (to, from, next) => {
   const authService = getInstance();
 
   const fn = () => {
-    if (authService.isAuthenticated) {
+    if (localStorage.getItem('secretCode') === 'cool2') {
       return next();
     }
 
-    authService.loginWithRedirect({ appState: { targetUrl: to.fullPath } });
+    authService.redirectToLogin();
   };
 
-  if (!authService.loading) {
-    return fn();
-  }
-
-  authService.$watch('loading', (loading) => {
-    if (loading === false) {
-      return fn();
-    }
-  });
+  return fn();
 };

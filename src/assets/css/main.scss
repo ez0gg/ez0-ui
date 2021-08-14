@@ -33,12 +33,25 @@ a {
   color: $primary-color;
 }
 
+input[type='text'],
+input[type='password'] {
+  @apply px-3 py-2;
+  background: #111;
+  border: 1px solid $primary-color;
+  border-radius: 8px;
+  outline: none;
+}
+
 .btn {
   @apply px-5 py-1 font-bold;
   font-size: 18px;
   border-radius: 8px;
   background: #2a3144;
   color: #f2f2f2;
+}
+
+.btn-primary {
+  background: $primary-color;
 }
 
 .card {
@@ -84,5 +97,37 @@ a {
     li {
       padding-bottom: 0.25rem;
     }
+  }
+}
+
+.hero-home {
+  background: url('../images/homebg.jpg') no-repeat center center;
+  background-size: cover;
+  height: 560px;
+
+  h1 {
+    font-size: 72px;
+  }
+
+  img {
+    height: 96px;
+    width: auto;
+  }
+}
+
+.bg-blue {
+  background: #03070c;
+}
+
+.join-discord {
+  position: relative;
+  overflow: hidden;
+
+  .cypher {
+    width: 700px;
+    height: auto;
+    position: absolute;
+    left: 0;
+    bottom: -280px;
   }
 }

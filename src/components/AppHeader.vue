@@ -10,8 +10,18 @@
         <router-link to="/about" class="header-link">About</router-link>
         <router-link to="/strats" class="header-link">Strats</router-link>
       </div>
-      <div class="login mr-4" v-if="!$auth.loading">
-        <button class="btn btn-signup">Log In</button>
+      <div class="login mr-4">
+        <button
+          class="btn btn-signup"
+          @click="login()"
+          v-if="$auth && !$auth.isAuthenticated"
+        >
+          Log In
+        </button>
+        <div class="loggedin flex" v-if="$auth && $auth.isAuthenticated">
+          <p class="mr-4">You are logged in.</p>
+          <a href="/logout" @click.prevent="logout()">Logout</a>
+        </div>
       </div>
     </div>
   </header>
@@ -21,12 +31,10 @@
 export default {
   methods: {
     login() {
-      this.$auth.loginWithRedirect();
+      this.$router.push({ name: 'Login' });
     },
     logout() {
-      this.$auth.logout({
-        returnTo: window.location.origin,
-      });
+      this.$auth.logout();
     },
   },
 };
