@@ -3,7 +3,7 @@
     <div class="hero-home">
       <div class="container flex flex-col items-center justify-center h-full">
         <img src="@/assets/images/logo.png" />
-        <h1 class="font-bold mb-8 text-center max-w-4xl">
+        <h1 class="font-bold mb-8 text-center max-w-3xl">
           Valorant Tournaments and Weekend Events
         </h1>
         <div class="home-buttons" v-if="!$auth.loading">
@@ -94,7 +94,7 @@ export default {
   height: 560px;
 
   h1 {
-    font-size: 72px;
+    font-size: 64px;
   }
 
   img {

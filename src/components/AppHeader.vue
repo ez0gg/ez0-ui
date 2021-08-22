@@ -1,21 +1,35 @@
 <template>
   <header>
+    <div
+      class="user-nav flex flex-col text-center"
+      :class="{ visible: showUserNav }"
+    >
+      <router-link :to="`/user/${$store.state.user.username}`"
+        >My Profile</router-link
+      >
+      <router-link to="/my-team">My Team</router-link>
+      <a href="#" @click="logout">Log out</a>
+    </div>
     <div class="header flex items-center justify-between p-2">
-      <div class="nav flex font-bold">
+      <div class="nav flex">
         <router-link to="/" class="logo">
           <img src="@/assets/images/logo.png" />
         </router-link>
-        <router-link to="/about" class="header-link">About</router-link>
+        <router-link to="/" class="header-link">Home</router-link>
         <router-link to="/tournaments" class="header-link"
           >Tournaments</router-link
         >
-        <router-link to="/rules" class="header-link">Rules</router-link>
-        <router-link to="/faq" class="header-link">FAQ</router-link>
+        <router-link to="/about" class="header-link">Info</router-link>
       </div>
       <div class="login mr-4" v-if="!$auth.loading">
-        <div v-if="$auth.isAuthenticated" class="flex">
-          <p class="mr-4">{{ $auth.user.email }}</p>
-          <button @click="logout">Log out</button>
+        <div
+          v-if="$auth.isAuthenticated"
+          @click="toggleUserNav()"
+          class="flex logged-in items-center"
+        >
+          <p class="mr-4">{{ $store.state.user.username }}</p>
+          <img class="mr-4" :src="$store.state.user.profileImageUrl" />
+          <span class="user-nav-toggle icon-chevron-down"></span>
         </div>
         <button
           v-if="!$auth.isAuthenticated"
@@ -38,6 +52,11 @@
 
 <script>
 export default {
+  data() {
+    return {
+      showUserNav: false,
+    };
+  },
   methods: {
     login() {
       this.$auth.loginWithRedirect();
@@ -47,12 +66,20 @@ export default {
         returnTo: window.location.origin,
       });
     },
+    toggleUserNav() {
+      this.showUserNav = !this.showUserNav;
+    },
+  },
+  watch: {
+    $route() {
+      this.showUserNav = false;
+    },
   },
 };
 </script>
 
 <style lang="scss">
-header {
+.header {
   background: #07070a;
   border-bottom: 1px solid #14171e;
   position: fixed;
@@ -60,8 +87,6 @@ header {
   left: 0;
   width: 100%;
   z-index: 10;
-}
-.header {
   height: 80px;
 }
 .logo {
@@ -71,8 +96,8 @@ header {
   }
 }
 .header-link {
-  @apply px-8;
-  font-size: 20px;
+  @apply px-8 font-bold;
+  font-size: 18px;
   height: 80px;
   display: flex;
   align-items: center;
@@ -80,6 +105,7 @@ header {
   color: #fff;
 
   &.router-link-exact-active {
+    border-top: 3px solid transparent;
     color: $primary-color;
     border-bottom: 3px solid $primary-color;
   }
@@ -88,11 +114,51 @@ header {
     color: $primary-color;
   }
 }
-.login {
-  color: #3d4752;
 
-  button {
-    color: #ccc;
+.login {
+  color: #bbb;
+
+  .user-nav-toggle {
+    cursor: pointer;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.user-nav {
+  position: fixed;
+  right: 16px;
+  top: 60px;
+  background: rgb(8, 6, 14);
+  border: 1px solid $primary-color;
+  border-top: none;
+  width: 200px;
+  transform: translateY(-150px);
+  z-index: 9;
+  transition: all 0.1s ease-in-out;
+
+  &.visible {
+    transform: translateY(20px);
+  }
+
+  a {
+    @apply px-8 py-4;
+    transition: all 0.3s ease-in-out;
+
+    &:hover {
+      background: lighten(rgb(8, 6, 14), 4%);
+      color: #fff;
+    }
+  }
+}
+
+.logged-in {
+  img {
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
   }
 }
 </style>

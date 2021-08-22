@@ -13,7 +13,7 @@
       id="main"
       :class="{ 'sidenav-expanded': this.sidenavExpanded }"
     >
-      <router-view />
+      <keep-alive><router-view /></keep-alive>
     </div>
   </div>
 </template>

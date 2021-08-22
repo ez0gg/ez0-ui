@@ -1,7 +1,7 @@
 <template>
   <div class="welcome text-center">
-    <h1 class="text-4xl mt-8 font-bold">Welcome to Element Zer0</h1>
-    <p class="text-xl mb-4">Choose a username</p>
+    <h1 class="text-3xl mt-8 font-bold">Welcome to Element Zer0</h1>
+    <p class="text-xl mb-4">Choose a username:</p>
     <input type="text" v-model="username" />
     <button class="btn ml-4" @click="register()" :disabled="loading">
       Submit
@@ -35,7 +35,7 @@ export default {
       const dialog = uploadcare.openDialog(null, '', {
         publicKey: '9bf6f709f65ed66722b0',
         imagesOnly: true,
-        crop: '300x300',
+        crop: '1200x400',
         tabs: 'file',
       });
 
@@ -45,7 +45,7 @@ export default {
         console.log('done?', res);
         if (res) {
           res.done((info) => {
-            console.log(info, info.cdnUrl);
+            console.log(info.cdnUrl);
             this.uploadedImgUrl = info.cdnUrl;
           });
         }

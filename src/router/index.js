@@ -46,6 +46,14 @@ const routes = [
       ),
   },
   {
+    path: '/profile/edit',
+    name: 'EditProfile',
+    component: () =>
+      import(
+        /* webpackChunkName: "user.editProfile" */ '../pages/user/EditProfile.vue'
+      ),
+  },
+  {
     path: '*',
     name: 'notFound',
     component: PageNotFound,

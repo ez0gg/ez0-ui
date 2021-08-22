@@ -8,11 +8,12 @@ const state = {
   token: null,
   loading: true,
   loggedIn: false,
+  user: {},
 };
 
 const getters = {
   user(state) {
-    return { token: state.token };
+    return { ...state.user, token: state.token };
   },
   loading(state) {
     return state.loading;
@@ -31,6 +32,9 @@ const mutations = {
   },
   setLoggedIn(state, loggedIn) {
     state.loggedIn = loggedIn;
+  },
+  setUser(state, user) {
+    state.user = user;
   },
 };
 
@@ -56,7 +60,8 @@ const actions = {
                     },
                   })
                   .then((resp) => {
-                    console.log('nice', resp);
+                    console.log('userdata', resp);
+                    context.commit('setUser', resp.data);
                     context.commit('setLoading', false);
                     resolve(authToken);
                   })
