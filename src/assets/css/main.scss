@@ -23,6 +23,11 @@ a {
   border-radius: 8px;
   background: #2a3144;
   color: #f2f2f2;
+
+  &:disabled {
+    color: #bbb;
+    background: #999;
+  }
 }
 
 .card {
@@ -57,5 +62,40 @@ a {
     @apply mx-auto;
     font-size: 20px;
     max-width: 720px;
+  }
+}
+
+body {
+  .toasted-container.full-width.top-center {
+    top: 71px;
+    z-index: 9;
+  }
+  toasted .primary.error,
+  .toasted.toasted-primary.error {
+    // min-width: 30vw;
+    // text-align: center;
+    // margin: auto;
+    background: #000;
+    font-weight: bold;
+    font-size: 16px;
+    // padding: 16px 32px;
+    border: 1px solid #f44336;
+    /* border-radius: 5px; */
+  }
+}
+
+input[type='text'] {
+  @apply px-4 py-2;
+  border: 1px solid $primary-color;
+  border-radius: 5px;
+  background: #000;
+  color: #fff;
+  outline: none;
+  transition: all 0.3s ease-in-out;
+  font-size: 18px;
+
+  &:focus,
+  &:active {
+    border: 1px solid lighten($primary-color, 20%);
   }
 }

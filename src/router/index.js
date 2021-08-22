@@ -32,8 +32,22 @@ const routes = [
       import(/* webpackChunkName: "teams" */ '../pages/Teams.vue'),
   },
   {
+    path: '/user/:id',
+    name: 'User',
+    component: () =>
+      import(/* webpackChunkName: "teams" */ '../pages/User.vue'),
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () =>
+      import(
+        /* webpackChunkName: "user.createProfile" */ '../pages/user/CreateProfile.vue'
+      ),
+  },
+  {
     path: '*',
-    name: '404',
+    name: 'notFound',
     component: PageNotFound,
   },
 ];

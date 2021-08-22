@@ -77,6 +77,7 @@ header {
   display: flex;
   align-items: center;
   transition: color 0.4s ease-in-out;
+  color: #fff;
 
   &.router-link-exact-active {
     color: $primary-color;

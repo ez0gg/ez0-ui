@@ -76,6 +76,7 @@ export const useAuth0 = ({
         ...options,
         client_id: options.clientId,
         redirect_uri: redirectUri,
+        audience: 'apiv1.ez0.gg',
       });
 
       try {

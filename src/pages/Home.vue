@@ -6,27 +6,22 @@
         <h1 class="font-bold mb-8 text-center max-w-4xl">
           Valorant Tournaments and Weekend Events
         </h1>
-        <div class="home-buttons mb-16">
-          <button
-            v-if="!$auth.isAuthenticated"
-            class="btn btn-big btn-signin mr-4"
-            @click="login"
-          >
-            Sign In
-          </button>
-          <button
-            v-if="!$auth.isAuthenticated"
-            class="btn btn-big btn-signup"
-            @click="login"
-          >
-            Sign Up
-          </button>
+        <div class="home-buttons" v-if="!$auth.loading">
+          <div class="mb-16" v-if="!$auth.isAuthenticated">
+            <button class="btn btn-big btn-signin mr-4" @click="login">
+              Sign In
+            </button>
+            <button class="btn btn-big btn-signup" @click="login">
+              Sign Up
+            </button>
+          </div>
         </div>
       </div>
     </div>
     <div class="big-section">
       <div class="container text-center">
         <h1>Next Tournament</h1>
+        <button class="btn" @click="getToken()">log token</button>
         <div class="next-tourney">
           <p>Date: This Friday (2 days from now)</p>
           <p>Start Time: 6:00pm CST</p>
@@ -83,6 +78,10 @@ export default {
       this.$auth.logout({
         returnTo: window.location.origin,
       });
+    },
+    async getToken() {
+      const x = await this.$auth.getTokenSilently();
+      console.log(x);
     },
   },
 };

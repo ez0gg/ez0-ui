@@ -1,15 +1,18 @@
 <template>
   <div id="app">
     <app-header></app-header>
-    <!-- <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div> -->
     <app-sidenav
       :expanded="sidenavExpanded"
       @click="toggleSidenav"
     ></app-sidenav>
-    <div id="main" :class="{ 'sidenav-expanded': this.sidenavExpanded }">
+    <div class="loading" v-if="loading">
+      <p>loading...</p>
+    </div>
+    <div
+      v-if="!loading"
+      id="main"
+      :class="{ 'sidenav-expanded': this.sidenavExpanded }"
+    >
       <router-view />
     </div>
   </div>
@@ -18,6 +21,7 @@
 <script>
 import AppHeader from '@/components/AppHeader';
 import AppSidenav from '@/components/AppSidenav';
+import { mapGetters } from 'vuex';
 
 export default {
   components: { AppHeader, AppSidenav },
@@ -26,17 +30,23 @@ export default {
       sidenavExpanded: false,
     };
   },
+  computed: {
+    ...mapGetters(['loading', 'loggedIn', 'user']),
+  },
   methods: {
     toggleSidenav() {
       this.sidenavExpanded = !this.sidenavExpanded;
     },
+  },
+  created() {
+    this.$store.dispatch('checkAuth');
   },
 };
 </script>
 
 <style lang="scss">
 #app {
-  font-family: 'Source Sans Pro', Helvetica, Arial, sans-serif;
+  font-family: 'Mulish', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding-top: 80px;

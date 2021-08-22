@@ -5,6 +5,14 @@ import './assets/css/tailwind.css';
 import './assets/css/main.scss';
 import { domain, clientId } from './auth/authConfig.json';
 import { Auth0Plugin } from './auth';
+import Vuex from 'vuex';
+import axios from 'axios';
+import VueAxios from 'vue-axios';
+import Toasted from 'vue-toasted';
+import store from './store/store';
+
+Vue.use(VueAxios, axios);
+Vue.use(Vuex);
 
 Vue.config.productionTip = false;
 
@@ -20,7 +28,15 @@ Vue.use(Auth0Plugin, {
   },
 });
 
+Vue.use(Toasted, {
+  duration: 2500,
+  position: 'top-center',
+  fullWidth: true,
+  // fitToScreen: true,
+});
+
 new Vue({
+  store: new Vuex.Store(store),
   router,
   render: (h) => h(App),
 }).$mount('#app');
