@@ -2,13 +2,17 @@
   <div class="user-profile">
     <div
       class="user-banner"
-      :style="{ backgroundImage: `url(${user.bannerImageUrl})` }"
+      :style="{
+        backgroundImage: user.bannerImageUrl
+          ? `url(${user.bannerImageUrl})`
+          : 'linear-gradient(180deg, rgba(5,5,27,1) 0%, rgba(2,2,4,1) 100%)',
+      }"
     >
       <div class="banner-overlay"></div>
     </div>
     <div class="container">
       <div class="user-top flex items-center">
-        <img class="mr-8" :src="user.profileImageUrl" v-show="!loading" />
+        <img class="mr-8" :src="user.profileImageUrl" />
         <h1 class="text-5xl">{{ $route.params.id }}</h1>
       </div>
       <div class="profile-info ml-32">
@@ -70,13 +74,16 @@ export default {
     },
   },
   watch: {
-    '$route.params.id': function () {
-      if (this.$route.name === 'User') {
+    $route(to, from) {
+      console.log('to', to);
+      console.log('from', from);
+      if (to.name === 'User' && from.name === 'EditProfile') {
         this.getUser();
       }
     },
   },
   mounted() {
+    console.log('mounted');
     this.getUser();
   },
 };
@@ -87,7 +94,7 @@ export default {
   width: 100%;
   height: 280px;
   background-size: cover;
-  background-position: center center;
+  background-position: bottom center;
   background-repeat: no-repeat;
   position: relative;
   z-index: -1;
@@ -108,6 +115,7 @@ export default {
     width: 100px;
     height: 100px;
     border-radius: 50%;
+    border: 2px solid $primary-color;
   }
 }
 </style>

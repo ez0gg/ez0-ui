@@ -82,6 +82,20 @@ const actions = {
       });
     });
   },
+  refreshUserdata(context) {
+    axios
+      .get(`${state.apiUrl}/users/userdata`, {
+        headers: {
+          Authorization: 'Bearer ' + state.token,
+        },
+      })
+      .then((resp) => {
+        context.commit('setUser', resp.data);
+      })
+      .catch((e) => {
+        console.error(e, e.message);
+      });
+  },
 };
 
 export default {

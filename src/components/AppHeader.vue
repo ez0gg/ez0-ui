@@ -3,6 +3,7 @@
     <div
       class="user-nav flex flex-col text-center"
       :class="{ visible: showUserNav }"
+      v-if="$auth.isAuthenticated"
     >
       <router-link :to="`/user/${$store.state.user.username}`"
         >My Profile</router-link

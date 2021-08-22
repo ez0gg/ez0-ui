@@ -13,7 +13,9 @@
       id="main"
       :class="{ 'sidenav-expanded': this.sidenavExpanded }"
     >
-      <keep-alive><router-view /></keep-alive>
+      <keep-alive>
+        <router-view :key="$route.fullPath" />
+      </keep-alive>
     </div>
   </div>
 </template>

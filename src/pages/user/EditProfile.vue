@@ -214,6 +214,7 @@ export default {
           { headers: { Authorization: 'Bearer ' + token } }
         );
         this.$toasted.success('Your profile was updated.');
+        this.$store.dispatch('refreshUserdata');
         this.$router.push('/user/' + this.$store.state.user.username);
       } catch (e) {
         console.error('error updating user', e);
