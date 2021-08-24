@@ -41,6 +41,25 @@
         </p>
         <p v-if="user.bio" class="mt-4">{{ user.bio }}</p>
       </div>
+      <div class="team-info">
+        <h2 class="text-gray-400 uppercase">Team</h2>
+        <p class="text-lg text-gray-500" v-if="!user.team">
+          User is not on a team
+        </p>
+        <p class="text-lg font-bold" v-else>{{ user.team.name }}</p>
+
+        <div class="teammates" v-if="user.team">
+          <h3 class="mt-4 text-gray-400 uppercase">Teammates</h3>
+          <div class="flex flex-col">
+            <router-link
+              :to="`/user/${player.username}`"
+              v-for="player in teammates"
+              :key="player.username"
+              >{{ player.username }}</router-link
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -71,6 +90,13 @@ export default {
         );
         this.loading = false;
       }
+    },
+  },
+  computed: {
+    teammates() {
+      return this.user.team.players.filter(
+        (player) => player.username !== this.$route.params.id
+      );
     },
   },
   watch: {
