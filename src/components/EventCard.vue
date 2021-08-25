@@ -27,8 +27,8 @@
           <p class="text-xl font-bold">8</p>
         </div>
         <div>
-          <p class="text-gray-500 uppercase font-bold text-sm">Eligibility</p>
-          <p class="text-lg">Open</p>
+          <p class="text-gray-500 uppercase font-bold text-sm">Entry Fee</p>
+          <p class="text-lg">Free</p>
         </div>
         <div>
           <p class="text-gray-500 uppercase font-bold text-sm">Format</p>
