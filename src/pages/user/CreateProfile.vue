@@ -56,7 +56,7 @@ export default {
       this.showError = false;
       this.loading = true;
       try {
-        const resp = await this.$http.post(
+        await this.$http.post(
           `${apiUrl}/users/create`,
           { username: this.username },
           {
@@ -67,7 +67,7 @@ export default {
         );
         this.$toasted.success('Account created');
         this.loading = false;
-        console.log(resp);
+        this.$router.push('/profile/edit');
       } catch (error) {
         if (error.response.status === 409 || error.response.status === 400) {
           if (error.response.data.message === 'User already created') {

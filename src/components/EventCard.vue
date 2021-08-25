@@ -1,6 +1,11 @@
 <template>
   <div class="event-card w-96">
-    <div class="card-header">Friday Night Brawl</div>
+    <div
+      class="card-header"
+      :style="{ background: cardbg, backgroundSize: 'cover' }"
+    >
+      Friday Night Brawl
+    </div>
     <div class="card-middle">
       <p class="mb-2">
         <span class="icon-calendar"></span> Friday Aug 27
@@ -37,6 +42,16 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    cardbg() {
+      return 'linear-gradient(rgba(0, 0, 50, 0.35), rgba(0, 0, 0, 0.9)), url("https://ucarecdn.com/23d6cb50-d7b1-4564-93a3-9ddeee2e7c65/-/crop/2560x852/0,442/-/resize/500x125/") no-repeat bottom center';
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 .event-card {
   border: 1px solid #555;
@@ -44,10 +59,6 @@
 
   .card-header {
     @apply py-12 text-2xl font-bold text-center;
-    background: #000;
-    background: linear-gradient(rgba(0, 0, 50, 0.35), rgba(0, 0, 0, 0.9)),
-      url('https://ucarecdn.com/23d6cb50-d7b1-4564-93a3-9ddeee2e7c65/-/crop/2560x852/0,442/-/resize/500x125/')
-        no-repeat bottom center;
     background-size: cover;
   }
 

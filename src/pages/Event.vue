@@ -1,8 +1,11 @@
 <template>
   <div class="event-page">
-    <div class="event-hero"></div>
+    <div
+      class="event-hero"
+      :style="{ background: bgString, backgroundSize: 'cover' }"
+    ></div>
     <div class="container event-wrapper">
-      <h1 class="text-center">Friday Night Brawl</h1>
+      <h1 class="text-center mb-12">Friday Night Brawl</h1>
       <div class="event-main">
         <p class="mb-2">
           <span class="icon-calendar"></span> Friday Aug 27
@@ -77,13 +80,19 @@
   </div>
 </template>
 
+<script>
+export default {
+  computed: {
+    bgString() {
+      return 'linear-gradient(rgba(0, 0, 50, 0.35), rgba(0, 0, 0, 0.9)), url("https://ucarecdn.com/23d6cb50-d7b1-4564-93a3-9ddeee2e7c65/-/crop/2560x852/0,442/-/resize/1200x400/") no-repeat bottom center';
+    },
+  },
+};
+</script>
+
 <style lang="scss">
 .event-hero {
   background: #000;
-  background: linear-gradient(rgba(0, 0, 50, 0.35), rgba(0, 0, 0, 0.9)),
-    url('https://ucarecdn.com/23d6cb50-d7b1-4564-93a3-9ddeee2e7c65/-/crop/2560x852/0,442/-/resize/1200x400/')
-      no-repeat bottom center;
-  background-size: cover;
   height: 300px;
 }
 
