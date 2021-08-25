@@ -16,11 +16,15 @@
           <span class="text-gray-500">(duration approx. 3 hours)</span>
         </p>
         <div class="event-more mt-8">
-          <div class="grid grid-cols-4">
+          <div class="grid grid-cols-5">
             <div class="mb-4">
               <p class="text-gray-500 uppercase font-bold text-sm">prize</p>
               <p class="text-xl font-bold">$100.00</p>
               <p class="text-sm">Winner take all</p>
+            </div>
+            <div class="mb-4">
+              <p class="text-gray-500 uppercase font-bold text-sm">entry fee</p>
+              <p class="text-xl font-bold">FREE!</p>
             </div>
             <div class="mb-4">
               <p class="text-gray-500 uppercase font-bold text-sm">Max Teams</p>
