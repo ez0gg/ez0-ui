@@ -60,6 +60,18 @@
             discord.
           </p>
         </div>
+        <div class="event-more mt-8">
+          <h2>Don't have a team?</h2>
+          <p>
+            Join our discord server to use the looking-for-team and
+            looking-for-player channels.
+          </p>
+          <p>
+            You can also register yourself as a <strong>free agent</strong> for
+            a tournament. If we don't have enough teams on the night of the
+            tournament we will create temporary teams from the free agent pool.
+          </p>
+        </div>
       </div>
     </div>
   </div>
