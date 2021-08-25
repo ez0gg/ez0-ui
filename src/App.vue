@@ -13,20 +13,20 @@
       id="main"
       :class="{ 'sidenav-expanded': this.sidenavExpanded }"
     >
-      <keep-alive>
-        <router-view :key="$route.fullPath" />
-      </keep-alive>
+      <router-view :key="$route.fullPath" />
     </div>
+    <app-footer />
   </div>
 </template>
 
 <script>
 import AppHeader from '@/components/AppHeader';
 import AppSidenav from '@/components/AppSidenav';
+import AppFooter from '@/components/AppFooter';
 import { mapGetters } from 'vuex';
 
 export default {
-  components: { AppHeader, AppSidenav },
+  components: { AppHeader, AppSidenav, AppFooter },
   data() {
     return {
       sidenavExpanded: false,
@@ -68,7 +68,7 @@ export default {
 }
 
 #main {
-  min-height: calc(100vh - 155px);
+  min-height: calc(100vh - 200px);
   // transform: translateX(54px);
   transition: all 0.3s ease-in-out;
   // width: calc(100vw - 54px);

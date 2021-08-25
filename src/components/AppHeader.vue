@@ -20,7 +20,7 @@
         <router-link to="/tournaments" class="header-link"
           >Tournaments</router-link
         >
-        <router-link to="/about" class="header-link">Info</router-link>
+        <router-link to="/info" class="header-link">Info</router-link>
       </div>
       <div class="login mr-4" v-if="!$auth.loading">
         <div

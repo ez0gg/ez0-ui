@@ -41,23 +41,33 @@
         </p>
         <p v-if="user.bio" class="mt-4">{{ user.bio }}</p>
       </div>
-      <div class="team-info">
-        <h2 class="text-gray-400 uppercase">Team</h2>
-        <p class="text-lg text-gray-500" v-if="!user.team">
-          User is not on a team
-        </p>
-        <p class="text-lg font-bold" v-else>{{ user.team.name }}</p>
+      <div class="grid grid-cols-2 mt-16 bg-gray-900 p-16">
+        <div class="team-info">
+          <h2 class="text-gray-400 uppercase">Team</h2>
+          <p class="text-lg text-gray-500" v-if="!user.team">
+            User is not on a team
+          </p>
+          <p class="text-lg font-bold" v-else>{{ user.team.name }}</p>
 
-        <div class="teammates" v-if="user.team">
-          <h3 class="mt-4 text-gray-400 uppercase">Teammates</h3>
-          <div class="flex flex-col">
-            <router-link
-              :to="`/user/${player.username}`"
-              v-for="player in teammates"
-              :key="player.username"
-              >{{ player.username }}</router-link
-            >
+          <div class="teammates" v-if="user.team">
+            <h3 class="mt-4 text-gray-400 uppercase">Teammates</h3>
+            <div class="flex flex-col">
+              <div
+                class="teammate flex items-center my-2"
+                v-for="player in teammates"
+                :key="player.username"
+              >
+                <img class="mr-3" :src="player.profileImageUrl" />
+                <router-link :to="`/user/${player.username}`">
+                  {{ player.username }}
+                </router-link>
+              </div>
+            </div>
           </div>
+        </div>
+        <div class="stats">
+          <h1>Stats</h1>
+          <p>Member Since: {{ memberSince }}</p>
         </div>
       </div>
     </div>
@@ -65,6 +75,8 @@
 </template>
 
 <script>
+import { DateTime } from 'luxon';
+
 export default {
   data() {
     return {
@@ -97,6 +109,15 @@ export default {
       return this.user.team.players.filter(
         (player) => player.username !== this.$route.params.id
       );
+    },
+    memberSince() {
+      const timeAgo = DateTime.fromISO(this.user.createdAt).toRelative();
+      const calDate = DateTime.fromISO(this.user.createdAt).toLocaleString({
+        month: 'long',
+        year: 'numeric',
+        day: 'numeric',
+      });
+      return `${calDate} (${timeAgo})`;
     },
   },
   watch: {
@@ -143,5 +164,10 @@ export default {
     border-radius: 50%;
     border: 2px solid $primary-color;
   }
+}
+.teammate img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
 }
 </style>

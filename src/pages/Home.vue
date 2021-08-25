@@ -2,9 +2,9 @@
   <div class="home">
     <div class="hero-home">
       <div class="container flex flex-col items-center justify-center h-full">
-        <img src="@/assets/images/logo.png" />
+        <h2 class="long-logo">Element Zer0</h2>
         <h1 class="font-bold mb-8 text-center max-w-3xl">
-          Valorant Tournaments and Weekend Events
+          Valorant Tournaments Every Weekend
         </h1>
         <div class="home-buttons" v-if="!$auth.loading">
           <div class="mb-16" v-if="!$auth.isAuthenticated">
@@ -18,20 +18,10 @@
         </div>
       </div>
     </div>
-    <div class="big-section">
+    <div class="event-section">
       <div class="container text-center">
         <h1>Next Tournament</h1>
-        <button class="btn" @click="getToken()">log token</button>
-        <div class="next-tourney">
-          <p>Date: This Friday (2 days from now)</p>
-          <p>Start Time: 6:00pm CST</p>
-          <p>Duration: 3 hours (approx)</p>
-          <p>Max teams: 8</p>
-          <p>Registered teams: 2/8</p>
-          <p>Prize: $100 winner-take-all</p>
-          <p>Format: single elimination, best of 1</p>
-          <p><a href="#">Full details</a></p>
-        </div>
+        <EventCard class="mx-auto" />
       </div>
     </div>
     <div class="big-section bg-blue">
@@ -61,15 +51,22 @@
           launches, get involved in tournament production, make new friends, and
           more!
         </p>
-        <button class="btn btn-big">Join Now</button>
+        <a
+          href="https://discord.gg/d988Brt85R"
+          target="_blank"
+          class="btn btn-big"
+          >Join Now</a
+        >
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import EventCard from '../components/EventCard.vue';
 export default {
   name: 'Home',
+  components: { EventCard },
   methods: {
     login() {
       this.$auth.loginWithRedirect();
@@ -104,7 +101,7 @@ export default {
 }
 
 .bg-blue {
-  background: darken($primary-color, 40%);
+  @apply bg-gray-900;
 }
 
 .join-discord {
@@ -112,11 +109,17 @@ export default {
   overflow: hidden;
 
   .cypher {
-    width: 700px;
+    width: 280px;
     height: auto;
     position: absolute;
-    left: 80px;
-    bottom: -280px;
+    left: 8px;
+    bottom: -24px;
+    z-index: -1;
   }
+}
+
+.long-logo {
+  @apply text-3xl;
+  color: $primary-color;
 }
 </style>

@@ -1,15 +1,30 @@
 <template>
-  <div class="container pt-4">
-    <div class="subnav mb-6">
-      <div class="subnav-item active">Current Tournament</div>
-      <div class="subnav-item">Upcoming Tournaments</div>
-      <div class="subnav-item">Past Tournaments</div>
+  <div class="tournaments">
+    <div class="event-section">
+      <div class="container text-center">
+        <h1 class="text-4xl">Next Tournament</h1>
+        <EventCard class="mx-auto" />
+      </div>
     </div>
-    <p>hi</p>
+    <div class="event-section bg-black">
+      <h1 class="text-4xl mb-12 text-center">Other Upcoming Events</h1>
+      <p class="text-gray-400 text-center text-lg">
+        No future events scheduled at this time &mdash; check back soon
+      </p>
+    </div>
+    <div class="event-section">
+      <h1 class="text-4xl mb-12 text-center">Past Events</h1>
+      <div class="events flex items-center justify-center">
+        <p class="text-gray-400 text-center text-lg">
+          No tournaments have been completed yet &mdash; check back soon
+        </p>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import EventCard from '../components/EventCard.vue';
 export default {
   data() {
     return {
@@ -18,26 +33,8 @@ export default {
       recentEvents: [],
     };
   },
+  components: { EventCard },
 };
 </script>
 
-<style lang="scss">
-.subnav {
-  @apply flex;
-}
-.subnav-item {
-  @apply uppercase py-3 px-6;
-  cursor: pointer;
-  color: #777;
-  border-bottom: 1px solid #888;
-
-  &.active {
-    border-bottom: 3px solid $primary-color;
-    color: #eee;
-  }
-
-  &:hover {
-    color: #fff;
-  }
-}
-</style>
+<style lang="scss"></style>
