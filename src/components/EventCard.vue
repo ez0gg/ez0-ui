@@ -9,7 +9,7 @@
     <div class="card-middle">
       <p class="mb-2">
         <span class="icon-calendar"></span> Friday Aug 27
-        <span class="text-gray-500">(tomorrow)</span>
+        <span class="text-gray-500">(TONIGHT!)</span>
       </p>
       <p>
         <span class="icon-clock"></span> 6:00 pm
