@@ -7,7 +7,7 @@
           Valorant Framework for Ranked 5 Stacks
         </h1>
         <div class="home-buttons mb-16">
-          <router-link to="/about" class="btn btn-big btn-signin mr-4">
+          <router-link to="/" class="btn btn-big btn-signin mr-4">
             Learn More
           </router-link>
         </div>
