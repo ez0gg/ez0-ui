@@ -3,11 +3,10 @@
     <div class="header flex items-center justify-between p-2">
       <div class="nav flex font-bold">
         <router-link to="/" class="logo flex items-center">
-          <img class="mr-4" src="@/assets/images/logo2.png" />
-          <span class="teamname mr-4">[teamname]</span>
+          <img class="mr-4" src="@/assets/logo2.png" />
+          <span class="teamname mr-4">CHIMERA</span>
         </router-link>
         <router-link to="/" class="header-link">Home</router-link>
-        <router-link to="/about" class="header-link">About</router-link>
         <router-link to="/strats" class="header-link">Strats</router-link>
       </div>
       <div class="login mr-4">
@@ -55,10 +54,10 @@ header {
 }
 .logo {
   img {
-    height: auto;
-    width: 165px;
+    height: 72px;
+    width: auto;
     position: absolute;
-    top: 10px;
+    top: 4px;
     left: 12px;
   }
 }
@@ -90,7 +89,7 @@ header {
 }
 .teamname {
   color: #f1f1f1;
-  margin-left: 185px;
+  margin-left: 120px;
   margin-right: 24px;
 }
 </style>
