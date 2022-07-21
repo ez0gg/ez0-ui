@@ -7,12 +7,11 @@
           Valorant Framework for Ranked 5&nbsp;Stacks
         </h1>
         <div class="home-buttons mb-16">
-          <router-link to="/" class="btn btn-big btn-signin mr-4">
-            Learn More
-          </router-link>
+          <a href="#about" class="btn btn-big btn-signin mr-4"> Learn More </a>
         </div>
       </div>
     </div>
+    <a name="about"></a>
     <div class="big-section">
       <div class="container text-left">
         <h1 class="text-center">Our Philosophy</h1>
@@ -153,11 +152,15 @@
       <div class="container text-center">
         <h1>Join our Discord</h1>
         <p class="mb-8 black-transparent">
-          Come be a part of our community to stay updated on events and feature
-          launches, get involved in tournament production, make new friends, and
-          more!
+          Come be a part of our community to learn more about our framework and
+          philosophy!
         </p>
-        <button class="btn btn-big">Join Us</button>
+        <a
+          class="btn btn-big"
+          href="https://discord.gg/xg4U5nJxVH"
+          target="_blank"
+          >Join Us</a
+        >
       </div>
     </div>
   </div>
