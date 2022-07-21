@@ -105,13 +105,10 @@ input[type='password'] {
   background-size: cover;
   height: 560px;
 
-  h1 {
-    font-size: 72px;
-  }
-
   img {
     height: 96px;
     width: auto;
+    margin-bottom: 16px;
   }
 }
 
@@ -119,15 +116,34 @@ input[type='password'] {
   background: #03070c;
 }
 
+.black-transparent {
+  background: #0e1015cb;
+  padding: 8px;
+  border-radius: 6px;
+}
+
 .join-discord {
   position: relative;
   overflow: hidden;
 
   .cypher {
-    width: 700px;
+    width: 500px;
     height: auto;
     position: absolute;
-    left: 0;
-    bottom: -280px;
+    left: -80px;
+    bottom: -88px;
+    z-index: -1;
+
+    @media screen and (min-width: 800px) {
+      width: 700px;
+      left: -200px;
+      bottom: -280px;
+    }
+
+    @media screen and (min-width: 1500px) {
+      width: 700px;
+      left: 0;
+      bottom: -280px;
+    }
   }
 }

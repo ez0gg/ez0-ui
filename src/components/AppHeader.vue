@@ -2,10 +2,10 @@
   <header>
     <div class="header flex items-center justify-between p-2">
       <div class="nav flex font-bold">
-        <router-link to="/" class="logo flex items-center">
+        <!-- <router-link to="/" class="logo flex items-center">
           <img class="mr-4" src="@/assets/logo2.png" />
           <span class="teamname mr-4">CHIMERA</span>
-        </router-link>
+        </router-link> -->
         <router-link to="/" class="header-link">Home</router-link>
         <router-link to="/strats" class="header-link">Strats</router-link>
       </div>
